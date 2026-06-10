@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energia Verde no Campo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">☀️🌿⚡</div>
+                    <div class="header-text">
+                        <h1>Energia Verde</h1>
+                        <p>no Campo</p>
+<h4>Criado por Stela S. Caselli - 3° Ano A - Colégio Professor Paulo Freire</h4>
+                    </div>
+                </div>
+                <div class="points-badge">
+                    <span class="points-value" id="totalPointsDisplay">0</span>
+                    <span class="points-label">pts</span>
+                </div>
+            </div>
+            <p class="header-desc">Gerencie o uso de energia renovável na sua fazenda de forma sustentável e eficiente.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Screen -->
+            <section id="home-screen" class="screen active">
+                <div class="stats-row">
+                    <div class="stat-card orange">
+                        <div class="stat-value" id="tasksDoneDisplay">0</div>
+                        <div class="stat-unit" id="tasksUnitDisplay">/7</div>
+                        <div class="stat-label">Tarefas Solar</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value" id="challengesDoneDisplay">0</div>
+                        <div class="stat-unit" id="challengesUnitDisplay">/6</div>
+                        <div class="stat-label">Desafios</div>
+                    </div>
+                    <div class="stat-card blue">
+                        <div class="stat-value" id="pointsDisplay">0</div>
+                        <div class="stat-unit">pts</div>
+                        <div class="stat-label">Pontos</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Progresso Geral</h2>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">☀️ Energia Solar</span>
+                            <span class="progress-pct" id="solarPctDisplay">0%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill solar" id="solarProgressFill" style="width: 0%"></div>
+                        </div>
+                        <p class="progress-sub" id="solarSubDisplay">0 de 7 tarefas concluídas</p>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">🌿 Biomassa</span>
+                            <span class="progress-pct" id="biomassPctDisplay">0%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill biomass" id="biomassProgressFill" style="width: 0%"></div>
+                        </div>
+                        <p class="progress-sub" id="biomassSubDisplay">0 de 6 desafios completados</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Acesso Rápido</h2>
+                    <div class="quick-grid">
+                        <button class="quick-card yellow" data-screen="solar">
+                            <span class="quick-emoji">☀️</span>
+                            <span class="quick-title">Tarefas Solar</span>
+                            <span class="quick-subtitle" id="solarPendingDisplay">7 pendentes</span>
+                        </button>
+                        <button class="quick-card green" data-screen="biomassa">
+                            <span class="quick-emoji">🌿</span>
+                            <span class="quick-title">Desafios Biomassa</span>
+                            <span class="quick-subtitle" id="biomassPendingDisplay">6 ativos</span>
+                        </button>
+                        <button class="quick-card blue" data-screen="fontes">
+                            <span class="quick-emoji">⚡</span>
+                            <span class="quick-title">Fontes Renováveis</span>
+                            <span class="quick-subtitle">5 fontes disponíveis</span>
+                        </button>
+                        <button class="quick-card orange" data-screen="fontes">
+                            <span class="quick-emoji">🔥</span>
+                            <span class="quick-title">Biogás</span>
+                            <span class="quick-subtitle">Explore o potencial</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tip-banner">
+                    <span class="tip-emoji">💡</span>
+                    <div>
+                        <p class="tip-title">Dica do Dia</p>
+                        <p class="tip-text">Painéis solares bem limpos podem aumentar a geração de energia em até 25%. Limpe-os mensalmente para máxima eficiência!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solar Screen -->
+            <section id="solar-screen" class="screen">
+                <div class="screen-header orange">
+                    <span class="header-emoji">☀️</span>
+                    <div class="header-info">
+                        <h2>Energia Solar</h2>
+                        <p>Tarefas na Fazenda</p>
+                    </div>
+                    <div class="pct-badge" id="solarHeaderPctDisplay">0%</div>
+                </div>
+
+                <div class="progress-section">
+                    <p class="progress-label" id="solarHeaderProgressDisplay">0 de 7 tarefas concluídas</p>
+                    <div class="progress-track">
+                        <div class="progress-fill solar" id="solarHeaderProgressFill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="tasks-list" id="solarTasksList"></div>
+            </section>
+
+            <!-- Biomassa Screen -->
+            <section id="biomassa-screen" class="screen">
+                <div class="screen-header green">
+                    <span class="header-emoji">🌿</span>
+                    <div class="header-info">
+                        <h2>Biomassa</h2>
+                        <p>Desafios no Campo</p>
+                    </div>
+                    <div class="pct-badge" id="biomassaHeaderPctDisplay">0%</div>
+                </div>
+
+                <div class="stats-row compact">
+                    <div class="stat-card green">
+                        <div class="stat-value" id="activeChallengesDisplay">0</div>
+                        <div class="stat-label">Ativos</div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-value" id="completedChallengesDisplay">0</div>
+                        <div class="stat-label">Concluídos</div>
+                    </div>
+                    <div class="stat-card gray">
+                        <div class="stat-value" id="lockedChallengesDisplay">0</div>
+                        <div class="stat-label">Bloqueados</div>
+                    </div>
+                </div>
+
+                <div class="challenges-list" id="challengesList"></div>
+            </section>
+
+            <!-- Fontes Screen -->
+            <section id="fontes-screen" class="screen">
+                <div class="screen-header blue">
+                    <span class="header-emoji">⚡</span>
+                    <div class="header-info">
+                        <h2>Fontes Renováveis</h2>
+                        <p>Energia Limpa no Agronegócio</p>
+                    </div>
+                </div>
+
+                <div class="info-banner">
+                    <p>🌎 O Brasil é líder mundial em energia renovável. Descubra como cada fonte pode transformar sua fazenda!</p>
+                </div>
+
+                <div class="sources-list" id="sourcesList"></div>
+            </section>
+        </main>
+
+        <!-- Tab Bar -->
+        <nav class="tab-bar">
+            <button class="tab-button active" data-screen="home">
+                <span class="tab-icon">🏠</span>
+                <span class="tab-label">Início</span>
+            </button>
+            <button class="tab-button" data-screen="solar">
+                <span class="tab-icon">☀️</span>
+                <span class="tab-label">Solar</span>
+            </button>
+            <button class="tab-button" data-screen="biomassa">
+                <span class="tab-icon">🌿</span>
+                <span class="tab-label">Biomassa</span>
+            </button>
+            <button class="tab-button" data-screen="fontes">
+                <span class="tab-icon">⚡</span>
+                <span class="tab-label">Fontes</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
